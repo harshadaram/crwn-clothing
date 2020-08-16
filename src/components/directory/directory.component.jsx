@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuItem } from '../menu-item/menu-item.component';
+import MenuItem  from '../menu-item/menu-item.component';
 import './directory.styles.scss';
 
 export default class Directory extends React.Component {
@@ -10,18 +10,21 @@ export default class Directory extends React.Component {
                 {
                   title: 'hats',
                   imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+                  size: 'small',
                   id: 1,
-                  linkUrl: 'shop/hats'
+                  linkUrl: 'hats'
                 },
                 {
                   title: 'jackets',
                   imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+                  size: 'small',
                   id: 2,
                   linkUrl: 'shop/jackets'
                 },
                 {
                   title: 'sneakers',
                   imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+                  size: 'small',
                   id: 3,
                   linkUrl: 'shop/sneakers'
                 },
@@ -46,8 +49,8 @@ export default class Directory extends React.Component {
         return (
             <div className="directory-menu">
                 {
-                    this.state.sections.map(({title, imageUrl, id, size}) => (
-                        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size}/>
+                    this.state.sections.map(({id, ...otherSectionProps}) => (
+                        <MenuItem key={id} {...otherSectionProps}/>
                     ))
                 }
             </div>
